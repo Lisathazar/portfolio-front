@@ -1,0 +1,55 @@
+.article {
+    width: 16em;
+    height: 11em;
+    background-size: cover;
+    background-position: top;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container{
+    background-color: blanchedalmond;
+}
+
+.smallContainer{
+    display: inline-block;
+    padding-top: 80px;
+    margin-left: 50px;
+    padding-bottom: 80px;
+    margin-right: 50px;
+}
+.pointer{
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .smallContainer{
+        display: block;
+        padding-top: 50px;
+    }
+
+    .flex{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+  }
+
+@media only screen and (min-width: 600px) {
+    /* For desktop: */
+    .smallContainer{
+        display: block;
+        padding-top: 50px;
+    }
+
+    .flex{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+}

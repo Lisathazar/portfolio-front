@@ -1,0 +1,18 @@
+<div class="container">
+    <div class= "smallContainer" >
+   
+        <h1 >Articles</h1>
+        <div class ="flex">
+            <div *ngFor= "let article of articles" class="pointer">
+                <h2>{{article.title}}</h2>
+                <div class="article" [style.backgroundImage]="'url(./../'+ article.image +')'">
+
+                </div>
+                <p>{{article.description}}</p>
+
+            </div>
+        </div>
+  
+    </div>
+
+</div>  

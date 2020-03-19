@@ -1,0 +1,28 @@
+<div class="container">
+   
+        <div class= "smallContainer">
+            <h1>Contact</h1>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <label>
+                Nom*:
+                </label>
+                <input type="text" formControlName="firstName" >
+
+
+                <label>
+                Email*:
+                 </label>
+                <input type="text" formControlName="email">
+
+
+                <label>
+                Message*:
+                </label>
+                <input type="text" formControlName="message" class="message">
+
+                <button type="submit"[disabled]="!contactForm.valid">Envoyer</button>
+            </form>
+        </div>
+        <img src="assets/Multi-coloured-Pastel-Geometric-Pattern-Wallpaper-Mural-plain-820x532.webp">
+    </div>
+    

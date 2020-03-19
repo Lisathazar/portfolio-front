@@ -1,0 +1,110 @@
+<div class="container">
+        <div class= "smallContainer" >
+            <div class= "containerRealization" *ngIf= "create==false && modify==false" >
+       
+            <h1 >Les réalisations</h1>
+                <div class="newContainer">
+                        <button (click)="createNew()">Créer une nouvelle réalisation</button>
+                    <div *ngFor="let realization of realizations">
+                        <h2>{{realization.title}}</h2>
+                        <div class="photoRea" [style.backgroundImage]="'url(./../'+ realization.image +')'"></div>
+                        <button (click)="putRealization(realization)">Modifier</button>
+                        <button (click)="deleteRealization(realization)">Supprimer</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div *ngIf= "modify">
+                <h1>Modifier une réalisation</h1>
+                <form [formGroup]="modifyrealizationForm" (ngSubmit)="submitModifyRealization()" >
+    
+                <div class="organisationForm">
+                        <label>
+                          Nom:
+                        </label>
+                          <input type="text" formControlName="title" [value]="realizationToPut.title">
+                        
+                    
+                          <label>Visible:</label>
+                          <select formControlName="visibility" (ngModelChange)="changeVisibility($event)">
+                            <option value ="" selected data-default>Choisir la visibilité</option>
+                              <option [ngValue]="1"  >Oui</option>
+                            <option [ngValue]="0">Non</option>
+                          </select> 
+                          <br />
+                          
+                      <!-- Modifier une image -->
+                        <label>
+                          Image:
+                        </label>
+                          <input type="texte" formControlName="image" >
+                        
+                    
+                    
+                        <label>
+                            Description:
+                        </label>
+                            <input type="text" formControlName="description" class="descriptionInput" [value]="realizationToPut.description">
+                        
+                    
+                        <label>
+                            Lien:
+                        </label>
+                            <input type="text" formControlName="link" [value]="realizationToPut.link">
+                        
+                    
+                        <button type="submit" >MODIFIER</button>
+                        
+                </div>
+                    </form>
+
+                    <button (click)="return()" >RETOUR</button>
+            </div>
+
+
+
+            <div *ngIf= "create">
+                <h1>Créer une réalisation</h1>
+                <form [formGroup]="createrealizationForm" (ngSubmit)="submitCreateRealization()" >
+
+
+                        <label>
+                            Nom:
+                            <input type="text" formControlName="title">
+                        </label>
+                    
+                            <label>Visible:</label>
+                            <select formControlName="visibility" (ngModelChange)="changeVisibility($event)">
+                            <option value ="" selected data-default>Choisir la visibilité</option>
+                                <option [ngValue]="1"  >Oui</option>
+                            <option [ngValue]="0">Non</option>
+                            </select> 
+                            <br />
+                            
+                        <!-- Modifier une image -->
+                        <label>
+                            Image:
+                            <input type="texte" formControlName="image" >
+                        </label>
+                    
+                    
+                        <label>
+                            Description:
+                            <input type="text" formControlName="description" class="descriptionInput" >
+                        </label>
+                    
+                        <label>
+                            Lien:
+                            <input type="text" formControlName="link" >
+                        </label>
+                    
+                        <button type="submit">CRÉER</button>
+                       
+                    
+                    </form>
+                    <button (click)="return()" >RETOUR</button>
+                </div>
+        </div>
+    </div>

@@ -1,0 +1,112 @@
+<div class="container">
+        <div class= "smallContainer" >
+            <div class= "containerArticle" *ngIf= "create==false && modify==false" >
+       
+            <h1 >Les articles</h1>
+                
+                    <button (click)="createNew()">Créer un nouvel article</button>
+                <div *ngFor="let article of articles" class= "cardArticle">
+                    <h2>{{article.title}}</h2>
+                    <div class="photoRea" [style.backgroundImage]="'url('+ article.image +')'"></div>
+                    <button (click)="putArticle(article)">Modifier</button>
+                    <button (click)="deleteArticle(article)">Supprimer</button>
+                </div>
+           </div>
+
+
+            <div *ngIf= "modify">
+                <h1>MODIFIER UN ARTICLE</h1>
+                <form [formGroup]="modifyArticleForm" (ngSubmit)=" submitModifyArticle()" >
+    
+                <div class="organisationForm">
+                        <label>
+                          Nom:
+                        </label>
+                          <input type="text" formControlName="title" [value]="articleToPut.title">
+                        
+                    
+                          <label>Visible:</label>
+                          <select formControlName="visibility" (ngModelChange)="changeVisibility($event)">
+                            <option value ="" selected data-default>Choisir la visibilité</option>
+                              <option [ngValue]="1"  >Oui</option>
+                            <option [ngValue]="0">Non</option>
+                          </select> 
+                          <br />
+                          
+                      <!-- Modifier une image -->
+                        <label>
+                          Image:
+                        </label>
+                          <input type="texte" formControlName="image" >
+                        
+                    
+                    
+                        <label>
+                            Description:
+                        </label>
+                            <input type="text" formControlName="description" class="descriptionInput" [value]="articleToPut.description">
+                        
+                    
+                        <label>
+                            Texte:
+                        </label>
+                            <input type="text" formControlName="texte" [value]="articleToPut.texte">
+                        
+                    
+                        <button type="submit" >MODIFIER</button>
+                        
+                </div>
+                    </form>
+
+                    <button (click)="return()" >RETOUR</button>
+            </div>
+
+
+
+            <div *ngIf= "create">
+                <h1>CRÉER UN ARTICLE</h1>
+                <form [formGroup]="createArticleForm" (ngSubmit)="submitCreateArticle()" >
+
+
+                        <label>
+                            Nom:*
+                        </label>
+                            <input type="text" formControlName="title">
+                        
+                    
+                            <label>Visible:</label>
+                            <select formControlName="visibility" (ngModelChange)="changeVisibility($event)">
+                            <option value ="" selected data-default>Choisir la visibilité</option>
+                                <option [ngValue]="1"  >Oui</option>
+                            <option [ngValue]="0">Non</option>
+                            </select> 
+                            <br />
+                            
+                        <!-- Modifier une image -->
+                        <label>
+                            Image:
+                        </label>
+                            <input type="texte" formControlName="image" >
+                        
+                    
+                    
+                        <label>
+                            Description:
+                        </label>
+                            <input type="text" formControlName="description" class="descriptionInput" >
+                        
+                    
+                        <label>
+                            Texte:
+                        </label>
+                            <input type="text" formControlName="texte" >
+                        
+                    
+                        <button type="submit">CRÉER</button>
+                       
+                    
+                    </form>
+                    <button (click)="return()" >RETOUR</button>
+                </div>
+        </div>
+    </div>

@@ -1,0 +1,12 @@
+.container{
+    padding-left: 50px;
+    padding-right:50px;
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+}
+
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,62 @@
+.containerRealization{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container{
+    width : 100%;
+    height: auto;
+    background-color: lightgoldenrodyellow;
+    background-position: left bottom;
+    background-attachment : fixed;
+
+}
+
+.cardArticle{
+    width: 300px;
+}
+
+
+h2{
+    padding-top: 15px;
+}
+
+.smallContainer{
+    display: inline-block;
+    padding-top: 80px;
+    margin-left: 50px;
+    padding-bottom: 80px;
+    margin-right: 50px;
+}
+
+.photoRea {
+    width: 16em;
+    height: 11em;
+    background-size: cover;
+    background-position: top;
+}
+
+input, select, button{
+    width: 250px;
+}
+
+.organisationForm{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    margin-top: 15px;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    input, select{
+        width: 60%;
+    }
+
+    .organisationForm{
+        width: 100%;
+    }
+    .smallContainer{
+        width: 100%;
+    }
+  }
